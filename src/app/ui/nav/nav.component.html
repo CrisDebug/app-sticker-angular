@@ -1,0 +1,56 @@
+<nav class="bg-green-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+            
+            <!--logo izquierda app-stickers-->
+            <div class="flex-shrink-0">
+                <a [routerLink]="['/']" class="text-2xl font-semibold text-gray-800">[Stickers]</a> 
+            </div>
+            
+            <!--centro menu oculto para movil-->
+            <div class="hidden md:flex md:space-x-8">
+                <a [routerLink]="['/']" routerLinkActive="router-link-active" class="nav-link">Inicio</a>
+                <a [routerLink]="['/catalogo']" routerLinkActive="router-link-active"  class="nav-link">Catalogo</a>
+                <a [routerLink]="['/sobrestickers']" routerLinkActive="router-link-active" class="nav-link">Sobre Stickers</a>
+            </div>
+
+            <!--derecha boton registrarse y boton hamburgueza movil-->
+                <div class="flex items-center">
+                    <a [routerLink]="['/register']" 
+                        routerLinkActive="router-link-active" 
+                        class=" 
+                        hidden 
+                        md:inline-block 
+                        w-full
+                        px-4 
+                        py-4  
+                        bg-amber-300 
+                        text-black 
+                        hover:bg-amber-200">Registrarse</a> 
+     
+
+            <!--boton hamburgueza visible en movil-->
+            <button type="button"
+                    aria-label="Abrir menu"
+                    class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray text-gray-600 hover:bg-gray-100"
+                    (click)="isOpen = !isOpen">
+                    
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path *ngIf="!isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path *ngIf="isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+            </button>      
+        </div>
+    </div>
+    </div>
+
+            <!--menu movil desplegable-->
+            <div *ngIf="isOpen" class="md:hidden border-t">
+                <div class="px-2 pt-3 space-y-1">
+                    <a [routerLink]="['/']" routerLinkActive="router-link-active" class="block px-3 py-2 rounded-md">Inicio</a>
+                    <a [routerLink]="['/catalogo']" routerLinkActive="router-link-active"  class="block px-3 py-2 rounded-md">Catalogo</a>
+                    <a [routerLink]="['/sobrestickers']" routerLinkActive="router-link-active"  class="block px-3 py-2 rounded-md">Sobre Stickers</a>
+
+                </div>
+            </div>
+</nav>
