@@ -36,7 +36,7 @@
             <!--validacion password-->
             <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
                 class="text-red-500 text-sm">
-                El password es obligatorio.
+                El password es minimo 8 caracteres.
             </div>
 
 
@@ -48,7 +48,7 @@
             <!--validacion confirmarcion password-->
             <div *ngIf="registerForm.get('confirmedPassword')?.invalid && registerForm.get('confirmedPassword')?.touched"
                 class="text-red-500 text-sm">
-                confirmar passsword.
+                confirmar passsword minimo 8 caracteres.
             </div>
 
         

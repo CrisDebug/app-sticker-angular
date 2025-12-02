@@ -14,6 +14,10 @@
                 <a [routerLink]="['/sobrestickers']" routerLinkActive="router-link-active" class="nav-link">Sobre Stickers</a>
             </div>
 
+
+            
+
+
             <!--derecha boton registrarse y boton hamburgueza movil-->
                 <div class="flex items-center">
                     <a [routerLink]="['/register']" 
@@ -28,7 +32,27 @@
                         text-black 
                         hover:bg-amber-200">Registrarse</a> 
      
+            
 
+
+
+            <!--derecha boton login y boton hamburgueza movil-->
+                <div class="flex items-center">
+                    <a [routerLink]="['/login']" 
+                        routerLinkActive="router-link-active" 
+                        class=" 
+                        hidden 
+                        md:inline-block 
+                        w-full
+                        px-4 
+                        py-4  
+                        bg-amber-400 
+                        text-black 
+                        hover:bg-amber-200">Login</a> 
+                </div>
+
+
+                
             <!--boton hamburgueza visible en movil-->
             <button type="button"
                     aria-label="Abrir menu"
