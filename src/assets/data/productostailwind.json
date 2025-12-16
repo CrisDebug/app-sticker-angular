@@ -1,0 +1,26 @@
+[
+    {
+        "id" : 1,
+        "nombre_componente" : "boton-verde-redondeado",
+        "tipo" : "botones",
+        "codigo": "<button class=\"px-4 py-2 bg-green-600 text-white rounded\">verde</button>",
+        "preview" : "boton_verde.png"
+
+    },
+    {
+        "id" : 2,
+        "nombre_componente" : "boton-gris-redondeado",
+        "tipo" : "botones",
+        "codigo": "<button class=\"px-4 py-2 bg-gray-600 text-white rounded\">gris</button>",
+        "preview" : "boton_gris.png"
+    },
+    {
+        "id" : 3,
+        "nombre_componente" : "boton_azul_redondeado",
+        "tipo" : "botones",
+        "codigo": "<button class=\"px-4 py-2 bg-blue-600 text-white rounded\">azul</button>",
+        "preview" : "boton_azul.png"
+    }
+
+
+]

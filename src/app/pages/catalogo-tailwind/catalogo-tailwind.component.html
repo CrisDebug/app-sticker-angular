@@ -1,0 +1,96 @@
+<!-- Título principal del catálogo -->
+<div class="flex flex-col items-center mb-8 mt-4">
+  <h2 class="text-2xl font-bold tracking-tight">
+    Stickers
+  </h2>
+  <p class="text-gray-500 text-sm mt-1 p-4">
+    Componentes listos para copiar y pegar
+  </p>
+  <!-- Botón crear componente -->
+  <button (click)="create()" class="mb-6 px-4 py-2 rounded bg-gray-900 text-white">
+    ➕ Crear componente
+  </button>
+</div>
+
+<!-- Grid de cards -->
+<div *ngIf="catalogo.length > 0; else sinDatos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div *ngFor="let item of catalogo; let i = index" class="border rounded-xl p-4 shadow-sm bg-white flex flex-col">
+
+    <!-- Nombre del componente -->
+    <h3 class="font-semibold text-lg mb-1">
+      {{ item.nombre_componente }}
+    </h3>
+
+    <!-- Tipo / sección del componente -->
+    <p class="text-sm text-gray-500 mb-3">
+      {{ item.tipo }}
+    </p>
+
+    <!-- Preview visual del componente -->
+    <div class="mb-4">
+      <span class="text-xs text-gray-400">Preview</span>
+      <div class="mt-2" [innerHTML]="codigoSeguro[i]"></div>
+    </div>
+
+    <!-- Botón para mostrar/ocultar código -->
+    <button (click)="toggleCodigo(i)" class="px-2 py-1 bg-blue-500 text-white rounded w-full mb-2">
+      {{ mostrarCodigo[i] ? 'Ocultar Código' : 'Mostrar Código' }}
+    </button>
+
+    <!-- Botón editar -->
+    <button (click)="editar(i)" class="px-2 py-1 bg-yellow-500 text-white rounded w-full mb-2">
+      ✏️ Editar
+    </button>
+
+    <!-- Botón eliminar -->
+    <button (click)="eliminar(i)" class="px-2 py-1 bg-red-500 text-white rounded w-full mb-2">
+      🗑️ Eliminar
+    </button>
+
+    <!-- Código del sticker -->
+    <div *ngIf="mostrarCodigo[i]" class="overflow-x-auto mt-2">
+      <pre class="bg-gray-100 p-2 rounded whitespace-pre-wrap">
+        {{ item.codigo }}
+      </pre>
+    </div>
+
+  </div>
+</div>
+
+<!-- Template alternativo si no hay datos -->
+<ng-template #sinDatos>
+  <p>No hay componentes disponibles.</p>
+</ng-template>
+
+<!-- Formulario de creación/edición (ANCHO COMPLETO) -->
+<div *ngIf="mostrarFormulario" class="mt-10 p-6 border rounded-xl bg-gray-50 w-full">
+
+  <h3 class="font-semibold text-lg mb-4">
+    {{ editIndex !== null ? 'Editar componente' : 'Crear componente' }}
+  </h3>
+
+  <!-- Nombre -->
+  <div class="mb-3">
+    <label class="block text-sm mb-1">Nombre del componente</label>
+    <input type="text" [(ngModel)]="nuevoComponente.nombre_componente" class="w-full border px-3 py-2 rounded" />
+  </div>
+
+  <!-- Tipo -->
+  <div class="mb-3">
+    <label class="block text-sm mb-1">Tipo</label>
+    <input type="text" [(ngModel)]="nuevoComponente.tipo" class="w-full border px-3 py-2 rounded" />
+  </div>
+
+  <!-- Código -->
+  <div class="mb-4">
+    <label class="block text-sm mb-1">Código Tailwind</label>
+    <textarea rows="3" [(ngModel)]="nuevoComponente.codigo" class="w-full border px-3 py-2 rounded font-mono text-sm"></textarea>
+  </div>
+
+  <!-- Acciones -->
+  <div class="flex gap-2 justify-end">
+    <button (click)="guardar()" class="px-4 py-2 bg-green-600 text-white rounded">Guardar</button>
+    <button (click)="mostrarFormulario = false" class="px-4 py-2 bg-gray-300 rounded">Cancelar</button>
+  </div>
+
+</div>
