@@ -73,6 +73,15 @@
                 <div class="px-2 pt-3 space-y-1">
                     <a [routerLink]="['/']" routerLinkActive="router-link-active" class="block px-3 py-2 rounded-md">Inicio</a>
                     <a [routerLink]="['/catalogo']" routerLinkActive="router-link-active"  class="block px-3 py-2 rounded-md">Catalogo</a>
+            
+                    <!-- Mostrar catálogo solo si el usuario está logueado -->
+            <a *ngIf="isLoggedIn()" 
+            [routerLink]="['/catalogo-tailwind']" 
+            routerLinkActive="router-link-active"  
+            class="nav-link">
+            Catálogo
+            </a>
+
                     <a [routerLink]="['/sobrestickers']" routerLinkActive="router-link-active"  class="block px-3 py-2 rounded-md">Sobre Stickers</a>
 
                 </div>

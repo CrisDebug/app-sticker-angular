@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nombre": "Administrador",
+    "email": "admin@sticker.cl",
+    "password": "Admin123!",
+    "rol": "ADMIN"
+  },
+  {
+    "id": 2,
+    "nombre": "Usuario",
+    "email": "user@sticker.cl",
+    "password": "User123!",
+    "rol": "USER"
+  }
+]

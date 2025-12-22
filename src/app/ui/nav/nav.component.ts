@@ -11,4 +11,9 @@ import { RouterModule } from '@angular/router';
 })
 export class NavComponent {
   isOpen = false;
+
+  isLoggedIn(): boolean {
+  return localStorage.getItem('usuario') !== null;
+}
+
 }

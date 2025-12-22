@@ -66,16 +66,17 @@ it('show marks fields as invalid ',()=>{
 
 
 
-// el formulario debe ser validado con datos correctos
-//
-it('show be valid when all fileds are filled correctly',() => {
+it('should be valid when all fields are filled correctly', () => {
   component.registerForm.controls['name'].setValue('cris');
   component.registerForm.controls['email'].setValue('cris@gmail.com');
   component.registerForm.controls['password'].setValue('12345678');
   component.registerForm.controls['confirmedPassword'].setValue('12345678');
   component.registerForm.controls['terms'].setValue(true);
-}
-);
+
+  component.registerForm.updateValueAndValidity();
+
+  expect(component.registerForm.valid).toBeTrue();
+});
 
 // debe llamar on submit si el formulario es valido 
 //[objetivo]-->comprobarque la funcion onSubmit solo se ejecuta si el formulario es valido
